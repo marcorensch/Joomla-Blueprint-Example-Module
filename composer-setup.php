@@ -41,16 +41,10 @@ foreach ($files as $file) {
 
 echo "Replacement completed!\n";
 
-// Find and Rename relevant filenames recursive in all subfolders where mod_blueprint is used
-$directory = new RecursiveDirectoryIterator(__DIR__);
-$iterator = new RecursiveIteratorIterator($directory);
-$regex = new RegexIterator($iterator, '/mod_blueprint/i', RegexIterator::GET_MATCH);
-
-foreach ($regex as $file) {
-	$oldFile = $file[0];
-	$newFile = str_replace('mod_blueprint', $moduleModNameReplacement, $oldFile);
-	rename($oldFile, $newFile);
-}
+// Rename relevant filenames where mod_blueprint is used
+rename(__DIR__ . '/mod_blueprint.xml', __DIR__ . "/" . $moduleModNameReplacement . '.xml');
+rename(__DIR__ . '/language/en-GB/mod_blueprint.ini', __DIR__ . '/language/en-GB/' . $moduleNameLowercase . '.ini');
+rename(__DIR__ . '/language/en-GB/mod_blueprint.sys.ini', __DIR__ . '/language/en-GB/' . $moduleNameLowercase . '.sys.ini');
 
 echo "Renaming completed!\n";
-echo "Please remove the files 'composer-setup.php', 'composer.json' and the 'vendor' directory from your project before deployment.\n";
+echo " Please remember to remove the files 'composer-setup.php', 'composer.json', 'composer.lock' and the 'vendor' folder from your project before deployment.\n"
