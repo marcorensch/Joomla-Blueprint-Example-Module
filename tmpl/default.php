@@ -1,12 +1,12 @@
 <?php
 /**
- * @package                                     [CREATORCOMPANY] BluePrint Module
+ * @package                                     [CREATOR-COMPANY] BluePrint Module
  *
- * @author                                      [CREATORCOMPANY] | [CREATORNAME] <[CREATOREMAIL]>
- * @copyright                                   Copyright(R) [CREATEDYEAR] by [CREATORCOMPANY] | [CREATORNAME]
+ * @author                                      [CREATOR-COMPANY] | [CREATOR-FULLNAME] <[CREATOR-EMAIL]>
+ * @copyright                                   Copyright(R) [CREATED-YEAR] by [CREATOR-COMPANY] | [CREATOR-FULLNAME]
  * @license                                     GNU General Public License version 2 or later; see LICENSE.txt
- * @link                                        [CREATORURL]
- * @since                                       [VERSION]
+ * @link                                        [CREATOR-URL]
+ * @since                                       [EXTENSION-VERSION]
  *
  */
 

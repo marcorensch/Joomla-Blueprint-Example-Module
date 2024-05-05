@@ -1,12 +1,12 @@
 <?php
 /**
- * @package                                     [CREATORCOMPANY] BluePrint Module
+ * @package                                     [CREATOR-COMPANY] BluePrint Module
  *
- * @author                                      [CREATORCOMPANY] | [CREATORNAME] <[CREATOREMAIL]>
- * @copyright                                   Copyright(R) [CREATEDYEAR] by [CREATORCOMPANY] | [CREATORNAME]
+ * @author                                      [CREATOR-COMPANY] | [CREATOR-FULLNAME] <[CREATOR-EMAIL]>
+ * @copyright                                   Copyright(R) [CREATED-YEAR] by [CREATOR-COMPANY] | [CREATOR-FULLNAME]
  * @license                                     GNU General Public License version 2 or later; see LICENSE.txt
- * @link                                        [CREATORURL]
- * @since                                       [VERSION]
+ * @link                                        [CREATOR-URL]
+ * @since                                       [EXTENSION-VERSION]
  *
  */
 
@@ -24,12 +24,12 @@ class ModBluePrintInstallerScript extends InstallerScript
 	 *
 	 * @return  void
 	 *
-	 * @since   [VERSION]
+	 * @since   [EXTENSION-VERSION]
 	 */
 	public function install($route)
 	{
 		// Install the extension
-		Factory::getApplication()->enqueueMessage('The [CREATORCOMPANY] BluePrint Module has been installed successfully.');
+		Factory::getApplication()->enqueueMessage('The [CREATOR-COMPANY] BluePrint Module has been installed successfully.');
 	}
 
 	/**
@@ -39,12 +39,12 @@ class ModBluePrintInstallerScript extends InstallerScript
 	 *
 	 * @return  void
 	 *
-	 * @since   [VERSION]
+	 * @since   [EXTENSION-VERSION]
 	 */
 	public function uninstall($data)
 	{
 		// Uninstall the extension
-		Factory::getApplication()->enqueueMessage('The [CREATORCOMPANY] BluePrint Module has been uninstalled successfully.');
+		Factory::getApplication()->enqueueMessage('The [CREATOR-COMPANY] BluePrint Module has been uninstalled successfully.');
 	}
 
 	/**
@@ -54,12 +54,12 @@ class ModBluePrintInstallerScript extends InstallerScript
 	 *
 	 * @return  void
 	 *
-	 * @since   [VERSION]
+	 * @since   [EXTENSION-VERSION]
 	 */
 	public function update($data)
 	{
 		// Update the extension
-		Factory::getApplication()->enqueueMessage('The [CREATORCOMPANY] BluePrint Module has been updated successfully.');
+		Factory::getApplication()->enqueueMessage('The [CREATOR-COMPANY] BluePrint Module has been updated successfully.');
 	}
 
 	/**
@@ -70,7 +70,7 @@ class ModBluePrintInstallerScript extends InstallerScript
 	 *
 	 * @return  void
 	 *
-	 * @since   [VERSION]
+	 * @since   [EXTENSION-VERSION]
 	 */
 	public function preflight($type, $data)
 	{
@@ -85,7 +85,7 @@ class ModBluePrintInstallerScript extends InstallerScript
 	 *
 	 * @return  void
 	 *
-	 * @since   [VERSION]
+	 * @since   [EXTENSION-VERSION]
 	 */
 	public function postflight($type, $data)
 	{

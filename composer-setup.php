@@ -1,30 +1,36 @@
 <?php
 // composer-setup.php
 
-// Benutzer nach den Ersatzwerten für [CREATOR], [DATE] und [COMPANY] fragen
+// Benutzer nach den Ersatzwerten für die Konfiguration fragen
 $pleaseEnter = "Please enter your value for ";
-$creatorReplacement = readline($pleaseEnter . "[CREATOR]: ");
-$dateReplacement = readline($pleaseEnter . "[DATE]: ");
-$cdateReplacement = readline($pleaseEnter . "[CREATEDDATE]: ");
-$yearDateReplacement = readline($pleaseEnter . "[CREATEDYEAR]: ");
-$companyReplacement = readline($pleaseEnter . "[CREATORCOMPANY]: ");
-$urlReplacement = readline($pleaseEnter . "[CREATORURL]: ");
-$cnameReplacement = readline($pleaseEnter . "[CREATORNAME]: ");
-$emailReplacement = readline($pleaseEnter . "[CREATOREMAIL]: ");
-$versionReplacement = readline($pleaseEnter . "[VERSION]: ");
+$pleaseEnterModuleName = "Please enter your value for the module name prefixed with 'mod_' in lowercase to replace the default value ";
+$pleaseEnterModuleNameCamelCase = "Please enter your value for the module name in CamelCase to replace the default value ";
+$companyReplacement = readline($pleaseEnter . "[CREATOR-COMPANY]: ");
+$cnameReplacement = readline($pleaseEnter . "[CREATOR-FULLNAME]: ");
+$urlReplacement = readline($pleaseEnter . "[CREATOR-URL]: ");
+$emailReplacement = readline($pleaseEnter . "[CREATOR-EMAIL]: ");
+$versionReplacement = readline($pleaseEnter . "[EXTENSION-VERSION]: ");
+$cdateReplacement = readline($pleaseEnter . "[CREATED-DATE]: ");
+$yearDateReplacement = readline($pleaseEnter . "[CREATED-YEAR]: ");
+$moduleModNameCcReplacement = ucfirst(trim(readline($pleaseEnterModuleNameCamelCase . "'BluePrint': ")));
+$moduleNameLowercase = strtolower($moduleModNameCcReplacement);
+$moduleModNameReplacement = 'mod_' . $moduleNameLowercase;
+$moduleNameUppercase = strtoupper($moduleModNameCcReplacement);
 
 // Dateien durchsuchen und ersetzen
 $files = glob(__DIR__ . '/*.*');
 foreach ($files as $file) {
 	$content = file_get_contents($file);
-	$content = str_replace('[CREATOR]', $creatorReplacement, $content);
-	$content = str_replace('[DATE]', $dateReplacement, $content);
-	$content = str_replace('[CREATEDDATE]', $cdateReplacement, $content);
-	$content = str_replace('[CREATEDYEAR]', $yearDateReplacement, $content);
-	$content = str_replace('[CREATORURL]', $urlReplacement, $content);
-	$content = str_replace('[CREATORNAME]', $cnameReplacement, $content);
-	$content = str_replace('[CREATOREMAIL]', $emailReplacement, $content);
-	$content = str_replace('[VERSION]', $versionReplacement, $content);
+	$content = str_replace('[CREATED-DATE]', $cdateReplacement, $content);
+	$content = str_replace('[CREATED-YEAR]', $yearDateReplacement, $content);
+	$content = str_replace('[CREATOR-URL]', $urlReplacement, $content);
+	$content = str_replace('[CREATOR-FULLNAME]', $cnameReplacement, $content);
+	$content = str_replace('[CREATOR-EMAIL]', $emailReplacement, $content);
+	$content = str_replace('[EXTENSION-VERSION]', $versionReplacement, $content);
+	$content = str_replace('mod_blueprint', $moduleModNameReplacement, $content);
+	$content = str_replace('BluePrint', $moduleModNameCcReplacement, $content);
+	$content = str_replace('blueprint', $moduleNameLowercase, $content);
+	$content = str_replace('BLUEPRINT', $moduleNameUppercase, $content);
 	file_put_contents($file, $content);
 }
 

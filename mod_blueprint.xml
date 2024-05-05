@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="4.4" client="site" method="upgrade">
     <name>MOD_BLUEPRINT</name>
-    <creationDate>[CREATEDDATE]</creationDate>
-    <author>[CREATORCOMPANY] | [CREATORNAME]</author>
-    <authorEmail>[CREATOREMAIL]</authorEmail>
-    <authorUrl>[CREATORURL]</authorUrl>
-    <copyright>Copyright ©[CREATEDYEAR] by [CREATORCOMPANY]</copyright>
+    <creationDate>[CREATED-DATE]</creationDate>
+    <author>[CREATOR-COMPANY] | [CREATOR-FULLNAME]</author>
+    <authorEmail>[CREATOR-EMAIL]</authorEmail>
+    <authorUrl>[CREATOR-URL]</authorUrl>
+    <copyright>Copyright ©[CREATED-YEAR] by [CREATOR-COMPANY]</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <namespace path="src">NXD\Module\BluePrint</namespace>
     <version>1.0.1</version>

@@ -12,13 +12,13 @@ This is a simple example module for Joomla 5.x. It shows Joomla! Content. This m
 3. Search & Replace all occurrences of `blueprint` with your module name in lowercase
 4. Search & Replace all occurrences of `BLUEPRINT` with your module name in uppercase
 #### Creator Information
-5. Search & Replace all occurrences of `[CREATORCOMPANY]` with your Company's Name
-6. Search & Replace all occurrences of `[CREATORURL]` with your Company's URL
-7. Search & Replace all occurrences of `[CREATORNAME]` with your Name
-8. Search & Replace all occurrences of `[CREATOREMAIL]` with your Email
-9. Search & Replace all occurrences of `[CREATEDDATE]` with the current date 
-10. Search & Replace all occurrences of `[CREATEDYEAR]` with your Copyright 
-11. Search & Replace all occurrences of `[VERSION]` with the current version
+5. Search & Replace all occurrences of `[CREATOR-COMPANY]` with your Company's Name
+6. Search & Replace all occurrences of `[CREATOR-URL]` with your Company's URL
+7. Search & Replace all occurrences of `[CREATOR-FULLNAME]` with your Name
+8. Search & Replace all occurrences of `[CREATOR-EMAIL]` with your Email
+9. Search & Replace all occurrences of `[CREATED-DATE]` with the current date 
+10. Search & Replace all occurrences of `[CREATED-YEAR]` with your Copyright 
+11. Search & Replace all occurrences of `[EXTENSION-VERSION]` with the current version
 
 #### Namespacing & File Renaming
 12. Search & Replace all occurrences of `NXD` with your Company's ID (used for namespacing)
