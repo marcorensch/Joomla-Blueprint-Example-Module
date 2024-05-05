@@ -17,13 +17,13 @@
         <folder>src</folder>
         <folder>tmpl</folder>
         <file>mod_blueprint.xml</file>
+        <file>script.php</file>
     </files>
 
     <languages>
         <language tag="en-GB">language/en-GB/mod_blueprint.ini</language>
         <language tag="en-GB">language/en-GB/mod_blueprint.sys.ini</language>
     </languages>
-
 
     <config>
         <fields name="params">
