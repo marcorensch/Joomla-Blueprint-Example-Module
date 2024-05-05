@@ -15,7 +15,7 @@ use Joomla\CMS\Installer\InstallerScript;
 
 defined('_JEXEC') or die;
 
-class ModBluePrintInstallerScript extends InstallerScript
+class Mod_BluePrintInstallerScript extends InstallerScript
 {
 	/**
 	 * Method to install the extension
