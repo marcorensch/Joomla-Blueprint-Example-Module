@@ -17,6 +17,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Form\Field\ListField;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
+use stdClass;
 
 class MySelectField extends ListField
 {
@@ -34,7 +35,7 @@ class MySelectField extends ListField
 		return $options;
 	}
 
-	private function createOption(string $value, string $label): HTMLHelper
+	private function createOption(string $value, string $label): stdClass
 	{
 		return HTMLHelper::_('select.option', $value, $label);
 	}
