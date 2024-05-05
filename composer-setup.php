@@ -65,11 +65,15 @@ echo " Please remember to remove the files 'composer-setup.php', 'composer.json'
 
 function replaceContentOfFolderFiles($folder, $replacements): void
 {
+	$ignoreFolders = array('.', '..', 'vendor', 'node_modules', '.git');
+	if (in_array(basename($folder), $ignoreFolders)) {
+		return;
+	}
 	$files = glob($folder . '/*.*');
 	foreach ($files as $file) {
 		$content = file_get_contents($file);
 		foreach($replacements as $replacement) {
-			$content = str_replace($replacement->key, $replacement->value, $content);
+			$content = str_replace($replacement->key, $replacement->value, $content, $count);
 		}
 		file_put_contents($file, $content);
 	}
