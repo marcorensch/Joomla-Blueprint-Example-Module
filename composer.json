@@ -1,0 +1,13 @@
+{
+  "name": "nxd/joomla5-module-blueprint",
+  "require": {
+  },
+    "autoload": {
+        "psr-4": {
+        "NXD\\Module\\Blueprint\\": "src/"
+        }
+    },
+  "scripts": {
+    "init": "php composer-setup.php"
+  }
+}
