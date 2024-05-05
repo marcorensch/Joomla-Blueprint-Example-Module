@@ -41,14 +41,15 @@ foreach ($files as $file) {
 
 echo "Replacement completed!\n";
 
-// Find and Rename relevant filenames where mod_blueprint is used
-$files = glob(__DIR__ . '/*.*');
-foreach ($files as $file) {
-	$filename = basename($file);
-	if (str_contains($filename, 'mod_blueprint')) {
-		$newFilename = str_replace('mod_blueprint', $moduleModNameReplacement, $filename);
-		rename($file, dirname($file) . '/' . $newFilename);
-	}
+// Find and Rename relevant filenames recursive in all subfolders where mod_blueprint is used
+$directory = new RecursiveDirectoryIterator(__DIR__);
+$iterator = new RecursiveIteratorIterator($directory);
+$regex = new RegexIterator($iterator, '/mod_blueprint/i', RegexIterator::GET_MATCH);
+
+foreach ($regex as $file) {
+	$oldFile = $file[0];
+	$newFile = str_replace('mod_blueprint', $moduleModNameReplacement, $oldFile);
+	rename($oldFile, $newFile);
 }
 
 echo "Renaming completed!\n";
