@@ -71,6 +71,7 @@ function replaceContentOfFolderFiles($folder, $replacements): void
 	}
 	$files = glob($folder . '/*.*');
 	foreach ($files as $file) {
+		echo 'Processing file: ' . $file . "\n";
 		$content = file_get_contents($file);
 		foreach($replacements as $replacement) {
 			$content = str_replace($replacement->key, $replacement->value, $content, $count);
