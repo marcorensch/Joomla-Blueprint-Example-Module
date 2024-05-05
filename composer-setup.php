@@ -44,7 +44,7 @@ function processDirectory($fileInfo, $replacements): void
 }
 
 // Verzeichnis, in dem die rekursive Durchquerung beginnen soll
-$startDirectory = '/pfad/zum/startverzeichnis';
+$startDirectory = __DIR__ . '/';
 
 // Erstelle einen rekursiven Iterator für das Startverzeichnis
 $iterator = new RecursiveIteratorIterator(
@@ -52,9 +52,14 @@ $iterator = new RecursiveIteratorIterator(
 	RecursiveIteratorIterator::SELF_FIRST
 );
 
+$ignoredFolders = array('.', '..', 'vendor', 'node_modules', '.git', '.idea');
+
 // Durchlaufe den Iterator und rufe die Callback-Funktion für jeden gefundenen Ordner auf
 foreach ($iterator as $fileInfo) {
-	processDirectory($fileInfo, $replacements);
+	if(!in_array($fileInfo->getFilename(), $ignoredFolders))
+	{
+		processDirectory($fileInfo, $replacements);
+	}
 }
 
 echo "Replacement completed!\n";
@@ -69,16 +74,20 @@ echo " Please remember to remove the files 'composer-setup.php', 'composer.json'
 
 function replaceContentOfFolderFiles($folder, $replacements): void
 {
-	$ignoreFolders = array('.', '..', 'vendor', 'node_modules', '.git');
-	if (in_array(basename($folder), $ignoreFolders)) {
+	$ignoreFolders = array('.', '..', 'vendor', 'node_modules', '.git', '.idea');
+	$ignoreFiles = array('composer-setup.php');
+	if (in_array(basename($folder), $ignoreFolders) || str_starts_with(basename($folder), '.')) {
 		return;
 	}
 	$files = glob($folder . '/*.*');
 	foreach ($files as $file) {
+		if(in_array(basename($file), $ignoreFiles)) {
+			continue;
+		}
 		echo 'Processing file: ' . $file . "\n";
 		$content = file_get_contents($file);
 		foreach($replacements as $replacement) {
-			$content = str_replace($replacement->key, $replacement->value, $content, $count);
+			$content = str_ireplace($replacement->key, $replacement->value, $content);
 		}
 		file_put_contents($file, $content);
 	}
