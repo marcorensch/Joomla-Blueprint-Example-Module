@@ -33,15 +33,11 @@ $replacements[]                        = new Replacement("blueprint", strtolower
 $replacements['moduleNameReplacement'] = new Replacement("mod_blueprint", 'mod_' . strtolower($value));
 $replacements[]                        = new Replacement("BLUEPRINT", strtoupper($value));
 
-echo var_export($replacements, true);
-
-
 // Walk recursively through the folders and replace the content of the files
 
 // Verzeichnis, in dem die rekursive Durchquerung beginnen soll
 $startDirectory = __DIR__ . '/';
 $ignoredFolders = array('.', '..', 'vendor', 'node_modules', '.git', '.idea');
-
 
 // Erstelle einen rekursiven Iterator für das Startverzeichnis
 $iterator = new RecursiveIteratorIterator(
