@@ -8,6 +8,6 @@
         }
     },
   "scripts": {
-    "init": "php composer-setup.php"
+    "setup": "php composer-setup.php"
   }
 }
