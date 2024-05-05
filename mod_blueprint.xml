@@ -35,6 +35,7 @@
         <folder module="mod_blueprint">services</folder>
         <folder>language</folder>
         <folder>src</folder>
+        <folder>sql</folder>
         <folder>tmpl</folder>
         <file>mod_blueprint.xml</file>
     </files>
