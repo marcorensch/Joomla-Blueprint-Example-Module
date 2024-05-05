@@ -47,4 +47,4 @@ rename(__DIR__ . '/language/en-GB/mod_blueprint.ini', __DIR__ . '/language/en-GB
 rename(__DIR__ . '/language/en-GB/mod_blueprint.sys.ini', __DIR__ . '/language/en-GB/' . $moduleNameLowercase . '.sys.ini');
 
 echo "Renaming completed!\n";
-echo " Please remember to remove the files 'composer-setup.php', 'composer.json', 'composer.lock' and the 'vendor' folder from your project before deployment.\n"
+echo " Please remember to remove the files 'composer-setup.php', 'composer.json', 'composer.lock' and the 'vendor' folder from your project before deployment.\n";
