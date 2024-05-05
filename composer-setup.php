@@ -40,3 +40,16 @@ foreach ($files as $file) {
 }
 
 echo "Replacement completed!\n";
+
+// Find and Rename relevant filenames where mod_blueprint is used
+$files = glob(__DIR__ . '/*.*');
+foreach ($files as $file) {
+	$filename = basename($file);
+	if (str_contains($filename, 'mod_blueprint')) {
+		$newFilename = str_replace('mod_blueprint', $moduleModNameReplacement, $filename);
+		rename($file, dirname($file) . '/' . $newFilename);
+	}
+}
+
+echo "Renaming completed!\n";
+echo "Please remove the files 'composer-setup.php', 'composer.json' and the 'vendor' directory from your project before deployment.\n";
