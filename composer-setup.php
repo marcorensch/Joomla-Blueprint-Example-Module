@@ -32,25 +32,29 @@ $replacements[] = new Replacement("BLUEPRINT", strtoupper($value));
 
 // Walk recursively through the folders and replace the content of the files
 // Callback-Funktion, die für jeden gefundenen Ordner ausgeführt wird
-function processDirectory($fileInfo, $replacements) {
-	echo "Processing directory: " . $fileInfo->getPathname() . "\n";
-	replaceContentOfFolderFiles(__DIR__, $replacements);
+// Callback-Funktion, die für jeden gefundenen Ordner ausgeführt wird
+function processDirectory($fileInfo, $replacements): void
+{
+	if ($fileInfo->isDir()) {
+		echo "Processing directory: " . $fileInfo->getPathname() . "\n";
+	}else{
+		echo "Processing file: " . $fileInfo->getPathname() . "\n";
+		replaceContentOfFolderFiles($fileInfo->getPathname(), $replacements);
+	}
 }
 
 // Verzeichnis, in dem die rekursive Durchquerung beginnen soll
-$startDirectory = __DIR__;
+$startDirectory = '/pfad/zum/startverzeichnis';
 
 // Erstelle einen rekursiven Iterator für das Startverzeichnis
 $iterator = new RecursiveIteratorIterator(
-	new RecursiveDirectoryIterator($startDirectory),
+	new RecursiveDirectoryIterator($startDirectory, RecursiveDirectoryIterator::SKIP_DOTS),
 	RecursiveIteratorIterator::SELF_FIRST
 );
 
 // Durchlaufe den Iterator und rufe die Callback-Funktion für jeden gefundenen Ordner auf
 foreach ($iterator as $fileInfo) {
-	if ($fileInfo->isDir()) {
-		processDirectory($fileInfo, $replacements);
-	}
+	processDirectory($fileInfo, $replacements);
 }
 
 echo "Replacement completed!\n";
