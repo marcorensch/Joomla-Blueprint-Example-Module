@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.4" client="site" method="upgrade">
+    <name>MOD_BLUEPRINT</name>
+    <creationDate>[CREATED]</creationDate>
+    <author>[CREATORCOMPANY] | [CREATORNAME]</author>
+    <authorEmail>[CREATOREMAIL]</authorEmail>
+    <authorUrl>[CREATORURL]</authorUrl>
+    <copyright>Copyright ©[CREATEDYEAR] by [CREATORCOMPANY]</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <namespace path="src">NXD\Module\BluePrint</namespace>
+    <version>1.0.0</version>
+    <description><![CDATA[MOD_BLUEPRINT_XML_DESCRIPTION]]></description>
+
+    <files>
+        <folder module="mod_blueprint">services</folder>
+        <folder>language</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/mod_blueprint.ini</language>
+        <language tag="en-GB">language/en-GB/mod_blueprint.sys.ini</language>
+    </languages>
+
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic"
+                      addfieldprefix="NXD\Module\BluePrint\Site\Field"
+            >
+                <field name="context"
+                       type="MySelect"
+                       label="MOD_BLUEPRINT_FIELD_CONTEXT_LABEL"
+                       description="MOD_BLUEPRINT_FIELD_CONTEXT_DESC"
+                >
+                    <option value="42">MOD_BLUEPRINT_OPTION42</option>
+                </field>
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="module-classes"
+                       type="textarea"
+                       label="MOD_BLUEPRINT_FIELD_MODULE_CLASSES_LABEL"
+                       description="MOD_BLUEPRINT_FIELD_MODULE_CLASSES_DESC"
+                       rows="3"
+                       hint="MOD_BLUEPRINT_FIELD_MODULE_CLASSES_HINT"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
