@@ -20,5 +20,31 @@ use NXD\Module\BluePrint\Site\Model\ExampleModel;
 
 class BluePrintHelper
 {
+	/**
+	 * Method to get the items the helper calls the model to get the items
+	 *
+	 * @param   array  $params  The module parameters
+	 * @param   object $app     The application object
+	 *
+	 * @return  array
+	 *
+	 * @since   2.0
+	 */
+	public function getItems($params, $app)
+	{
+		// Get the model
+		$model = new ExampleModel($app);
+
+		// Get the items from the model
+		$items = $model->getItems();
+
+		// Process the items
+		foreach ($items as $item)
+		{
+			$item->title = Text::_($item->title);
+		}
+
+		return $items;
+	}
 
 }

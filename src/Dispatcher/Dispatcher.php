@@ -30,7 +30,13 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
 
 		$data          = parent::getLayoutData();
 		$helperName    = ucfirst($params->get('context', 'articles')) . 'Helper';
-		$data['items'] = $this->getHelperFactory()->getHelper($helperName)->getItems($data['params'], $this->getApplication());
+		// this example will only work with the BluePrintHelper and ArticlesHelper:
+		if(in_array($helperName, ['BluePrintHelper', 'ArticlesHelper'])) {
+			$data['items'] = $this->getHelperFactory()->getHelper($helperName)->getItems($data['params'], $this->getApplication());
+		}else{
+			// Return an empty array if we have selected a helper that does not exist only for the purpose of this example
+			$data['items'] = [];
+		}
 
 		return $data;
 	}
