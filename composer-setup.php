@@ -69,11 +69,19 @@ rename(__DIR__ . '/language/en-GB/mod_blueprint.ini', __DIR__ . '/language/en-GB
 rename(__DIR__ . '/language/en-GB/mod_blueprint.sys.ini', __DIR__ . '/language/en-GB/' . $replacements['moduleNameReplacement']->value . '.sys.ini');
 rename(__DIR__ . '/src/Helper/BluePrintHelper.php', __DIR__ . '/src/Helper/' . $replacements['moduleNameCamelCase']->value . 'Helper.php');
 
-
 echo "Renaming completed!\n";
 echo " Please remember to remove the files 'composer-setup.php', 'composer.json', 'composer.lock' and the 'vendor' folder from your project before deployment.\n";
 
-
+/**
+ * Check if the array of strings contains a string, case-insensitive search returns true if found
+ *
+ * @param   string  $str  The string to search in
+ * @param   array   $arr  The array of strings to search for
+ *
+ * @return bool
+ *
+ * @since version
+ */
 function contains($str, array $arr): bool
 {
 	foreach ($arr as $a)

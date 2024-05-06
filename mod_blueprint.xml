@@ -40,6 +40,13 @@
         <file>mod_blueprint.xml</file>
     </files>
 
+    <!-- Media files -->
+    <media folder="media/mod_blueprint" destination="mod_blueprint">
+        <folder>js</folder>
+        <folder>css</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+
     <languages>
         <language tag="en-GB">language/en-GB/mod_blueprint.ini</language>
         <language tag="en-GB">language/en-GB/mod_blueprint.sys.ini</language>
