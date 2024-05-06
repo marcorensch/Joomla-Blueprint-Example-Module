@@ -11,3 +11,5 @@
  */
 
 defined('_JEXEC') or die;
+
+echo 'Hello World from tmpl/grid/default.php!';
