@@ -10,11 +10,12 @@
  *
  */
 
-use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Factory;
 
 defined('_JEXEC') or die;
 
-// Load the Assets Layout that includes the WebAssets calls
-LayoutHelper::render('NXD\Module\BluePrint\Layout\loadAssets');
-
-echo 'Hello World from tmpl/default.php!';
+// Get the WebAsset Manager
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+// Load the assets
+$wa->useStyle('mod_blueprint.css.main');
+$wa->useScript('mod_blueprint.js.main');

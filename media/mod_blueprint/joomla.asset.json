@@ -15,6 +15,25 @@
       "attributes": {
         "defer": true
       }
+    },
+    {
+      "name": "mod_blueprint.js.es6",
+      "type": "script",
+      "uri": "mod_blueprint/es6_module.js",
+      "dependencies": [
+        "core", "mod_blueprint.js.main"
+      ],
+      "attributes": {
+        "type": "module"
+      }
+    },
+    {
+      "name": "mod_blueprint.css.main",
+      "type": "style",
+      "uri": "mod_blueprint/main.css",
+      "dependencies": [
+        "core"
+      ]
     }
   ]
 }
