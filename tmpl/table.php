@@ -11,3 +11,6 @@
  */
 
 defined('_JEXEC') or die;
+
+// Include the layout file
+require_once __DIR__ . '/table/default.php';

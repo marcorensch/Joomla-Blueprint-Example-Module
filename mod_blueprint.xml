@@ -54,24 +54,34 @@
 
     <config>
         <fields name="params">
-            <fieldset name="basic"
-                      addfieldprefix="NXD\Module\BluePrint\Site\Field"
+            <fieldset
+                    name="basic"
+                    addfieldprefix="NXD\Module\BluePrint\Site\Field"
             >
-                <field name="context"
-                       type="MySelect"
-                       label="MOD_BLUEPRINT_FIELD_CONTEXT_LABEL"
-                       description="MOD_BLUEPRINT_FIELD_CONTEXT_DESC"
+                <field
+                        name="context"
+                        type="MySelect"
+                        label="MOD_BLUEPRINT_FIELD_CONTEXT_LABEL"
+                        description="MOD_BLUEPRINT_FIELD_CONTEXT_DESC"
                 >
                     <option value="42">MOD_BLUEPRINT_OPT_OPTION42</option>
                 </field>
+                <field
+                        name="layout"
+                        type="modulelayout"
+                        label="MOD_BLUEPRINT_FIELD_LAYOUT_LABEL"
+                        description="MOD_BLUEPRINT_FIELD_LAYOUT_DESC"
+                        client_id="0"
+                />
             </fieldset>
             <fieldset name="advanced">
-                <field name="module-classes"
-                       type="textarea"
-                       label="MOD_BLUEPRINT_FIELD_MODULE_CLASSES_LABEL"
-                       description="MOD_BLUEPRINT_FIELD_MODULE_CLASSES_DESC"
-                       rows="3"
-                       hint="MOD_BLUEPRINT_FIELD_MODULE_CLASSES_HINT"
+                <field
+                        name="module-classes"
+                        type="textarea"
+                        label="MOD_BLUEPRINT_FIELD_MODULE_CLASSES_LABEL"
+                        description="MOD_BLUEPRINT_FIELD_MODULE_CLASSES_DESC"
+                        rows="3"
+                        hint="MOD_BLUEPRINT_FIELD_MODULE_CLASSES_HINT"
                 />
             </fieldset>
         </fields>
