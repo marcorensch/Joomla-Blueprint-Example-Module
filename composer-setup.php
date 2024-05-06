@@ -68,6 +68,8 @@ rename(__DIR__ . '/mod_blueprint.xml', __DIR__ . "/" . $replacements['moduleName
 rename(__DIR__ . '/language/en-GB/mod_blueprint.ini', __DIR__ . '/language/en-GB/' . $replacements['moduleNameReplacement']->value . '.ini');
 rename(__DIR__ . '/language/en-GB/mod_blueprint.sys.ini', __DIR__ . '/language/en-GB/' . $replacements['moduleNameReplacement']->value . '.sys.ini');
 rename(__DIR__ . '/src/Helper/BluePrintHelper.php', __DIR__ . '/src/Helper/' . $replacements['moduleNameCamelCase']->value . 'Helper.php');
+// Rename the media folder
+rename(__DIR__ . '/media/mod_blueprint', __DIR__ . '/media/' . strtolower($replacements['moduleNameReplacement']->value));
 
 echo "Renaming completed!\n";
 echo " Please remember to remove the files 'composer-setup.php', 'composer.json', 'composer.lock' and the 'vendor' folder from your project before deployment.\n";
