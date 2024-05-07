@@ -28,6 +28,10 @@ $replacements[]                        = new Replacement("[CREATED-DATE]", $valu
 $value                                 = readline($pleaseEnter . "[CREATED-YEAR]: ");
 $replacements[]                        = new Replacement("[CREATED-YEAR]", $value);
 $value                                 = ucfirst(trim(readline($pleaseEnterModuleNameCamelCase . "'BluePrint': ")));
+if (!strlen($value))
+{
+	$value = 'BluePrint';
+}
 $replacements['moduleNameCamelCase']   = new Replacement("BluePrint", $value);
 $replacements[]                        = new Replacement("blueprint", strtolower($value));
 $replacements['moduleNameReplacement'] = new Replacement("mod_blueprint", 'mod_' . strtolower($value));
