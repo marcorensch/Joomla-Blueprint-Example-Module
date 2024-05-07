@@ -17,6 +17,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Dispatcher\AbstractModuleDispatcher;
 use Joomla\CMS\Helper\HelperFactoryAwareInterface;
 use Joomla\CMS\Helper\HelperFactoryAwareTrait;
+use Joomla\CMS\Uri\Uri;
 use Joomla\Registry\Registry;
 use NXD\Module\BluePrint\Site\Helper\BluePrintHelper;
 
@@ -43,6 +44,8 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
 			// Return an empty array if we have selected a helper that does not exist only for the purpose of this example
 			$data['items'] = [];
 		}
+
+		$data['assetsPath'] = Uri::base() . '/media/mod_blueprint/';
 
 		return $data;
 	}
