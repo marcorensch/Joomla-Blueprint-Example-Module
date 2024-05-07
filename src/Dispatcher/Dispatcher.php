@@ -27,6 +27,12 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
 	protected function getLayoutData()
 	{
 		$params = new Registry($this->module->params);
+		// Add our assets to the WebAsset Manager
+		$wa = $this->getApplication()->getDocument()->getWebAssetManager();
+		// Get the WebAsset Registry it is required to load the assets this way for modules
+		// see: https://manual.joomla.org/docs/general-concepts/web-asset-manager/#register-an-asset
+		$wr = $wa->getRegistry();
+		$wr->addRegistryFile('/media/mod_blueprint/joomla.asset.json');
 
 		$data          = parent::getLayoutData();
 		$helperName    = ucfirst($params->get('context', 'articles')) . 'Helper';
