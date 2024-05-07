@@ -11,84 +11,92 @@
  */
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\Installer\InstallerScript;
+use Joomla\CMS\Application\AdministratorApplication;
+use Joomla\CMS\Installer\InstallerAdapter;
+use Joomla\CMS\Installer\InstallerScriptInterface;
+use Joomla\CMS\Language\Text;
+use Joomla\Database\DatabaseInterface;
+use Joomla\DI\Container;
+use Joomla\DI\ServiceProviderInterface;
+use Joomla\Filesystem\Exception\FilesystemException;
+use Joomla\Filesystem\File;
 
-defined('_JEXEC') or die;
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
 
-class Mod_BluePrintInstallerScript extends InstallerScript
-{
-	/**
-	 * Method to install the extension
-	 *
-	 * @param   string  $route  The path to the extension manifest file
-	 *
-	 * @return  void
-	 *
-	 * @since   [EXTENSION-VERSION]
-	 */
-	public function install($route)
+// phpcs:enable PSR1.Files.SideEffects
+
+return new class () implements ServiceProviderInterface {
+	public function register(Container $container)
 	{
-		// Install the extension
-		Factory::getApplication()->enqueueMessage('The [CREATOR-COMPANY] BluePrint Module has been installed successfully.');
-	}
+		$container->set(
+			InstallerScriptInterface::class,
+			new class (
+				$container->get(AdministratorApplication::class),
+				$container->get(DatabaseInterface::class)
+			) implements InstallerScriptInterface {
+				private AdministratorApplication $app;
+				private DatabaseInterface $db;
 
-	/**
-	 * Method to uninstall the extension
-	 *
-	 * @param   array  $data  An array of data returned by the install() method
-	 *
-	 * @return  void
-	 *
-	 * @since   [EXTENSION-VERSION]
-	 */
-	public function uninstall($data)
-	{
-		// Uninstall the extension
-		Factory::getApplication()->enqueueMessage('The [CREATOR-COMPANY] BluePrint Module has been uninstalled successfully.');
-	}
+				public function __construct(AdministratorApplication $app, DatabaseInterface $db)
+				{
+					$this->app = $app;
+					$this->db  = $db;
+				}
 
-	/**
-	 * Method to update the extension
-	 *
-	 * @param   array  $data  An array of data returned by the install() method
-	 *
-	 * @return  void
-	 *
-	 * @since   [EXTENSION-VERSION]
-	 */
-	public function update($data)
-	{
-		// Update the extension
-		Factory::getApplication()->enqueueMessage('The [CREATOR-COMPANY] BluePrint Module has been updated successfully.');
-	}
+				public function install(InstallerAdapter $parent): bool
+				{
+					// Install the extension
+					Factory::getApplication()->enqueueMessage('The [CREATOR-COMPANY] BluePrint Module has been installed successfully.');
 
-	/**
-	 * Method to run before an install/update/uninstall method
-	 *
-	 * @param   string  $type  The type of change (install, update, or uninstall)
-	 * @param   array   $data  An array of data returned by the install() method
-	 *
-	 * @return  void
-	 *
-	 * @since   [EXTENSION-VERSION]
-	 */
-	public function preflight($type, $data)
-	{
-		// Preflight the extension
-	}
+					return true;
+				}
 
-	/**
-	 * Method to run after an install/update/uninstall method
-	 *
-	 * @param   string  $type  The type of change (install, update, or uninstall)
-	 * @param   array   $data  An array of data returned by the install() method
-	 *
-	 * @return  void
-	 *
-	 * @since   [EXTENSION-VERSION]
-	 */
-	public function postflight($type, $data)
-	{
-		// Postflight the extension
+				public function uninstall(InstallerAdapter $parent): bool
+				{
+					// Uninstall the extension
+					Factory::getApplication()->enqueueMessage('The [CREATOR-COMPANY] BluePrint Module has been uninstalled successfully.');
+
+					return true;
+				}
+
+				public function update(InstallerAdapter $parent): bool
+				{
+					// Update the extension
+					Factory::getApplication()->enqueueMessage('The [CREATOR-COMPANY] BluePrint Module has been updated successfully.');
+
+					return true;
+				}
+
+				public function preflight(string $type, InstallerAdapter $parent): bool
+				{
+					return true;
+				}
+
+				public function postflight(string $type, InstallerAdapter $parent): bool
+				{
+					$this->deleteUnexistingFiles();
+
+					return true;
+				}
+
+				private function deleteUnexistingFiles(): void
+				{
+					$files = [];
+
+					if (empty($files)) {
+						return;
+					}
+
+					foreach ($files as $file) {
+						try {
+							File::delete(JPATH_ROOT . $file);
+						} catch (FilesystemException $e) {
+							echo Text::sprintf('FILES_JOOMLA_ERROR_FILE_FOLDER', $file) . '<br>';
+						}
+					}
+				}
+			}
+		);
 	}
-}
+};
