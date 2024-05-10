@@ -8,7 +8,7 @@
     <copyright>Copyright ©[CREATED-YEAR] by [CREATOR-COMPANY]</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <namespace path="src">NXD\Module\BluePrint</namespace>
-    <version>1.0.1</version>
+    <version>[EXTENSION-VERSION]</version>
     <description><![CDATA[MOD_BLUEPRINT_XML_DESCRIPTION]]></description>
 
     <!-- Scripts to run on installation / update / uninstall -->
