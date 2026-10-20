@@ -10,8 +10,9 @@ This is a simple example module for Joomla! 4.x / 5.x. It shows Joomla! Content.
 ## Configuration / Usage
 ### Setup using Composer
 1. Clone the repository
-2. Run `composer setup` to rename the module and set up the module
-3. Install the module via Joomla! Extension Manager
+2. Run `composer setup` by typing `composer run-script setup` in a new terminal window to rename the module and set up the module
+3. Run `composer deploy [name]` by typing `composer run script deploy [name]` in a new terminal window where the name is your module name previously defined in the setup
+4. Install the module via Joomla! Extension Manager
 
 
 ### Setup using manual Method via Search and Replace
