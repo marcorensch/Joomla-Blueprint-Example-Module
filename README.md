@@ -1,6 +1,6 @@
-# NXD BluePrint Example Module for Joomla! 4.x / 5.x
+# NXD BluePrint Example Module for Joomla! 4.x / 5.x / 6.x
 
-This is a simple example module for Joomla! 4.x / 5.x. It shows Joomla! Content. This module can be used as Blueprint.
+This is a simple example module for Joomla! 4.x / 5.x / 6.x. It shows Joomla! Content. This module can be used as Blueprint.
 
 ## Features
 
