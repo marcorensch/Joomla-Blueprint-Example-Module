@@ -45,7 +45,7 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
 
         // Joomla 4/5 AJAX API Route prüfen
         $isAjax = $input->getCmd('option') === 'com_ajax'
-            || strpos($input->getCmd('task'), 'mod_somemodule.') === 0;
+            || strpos($input->getCmd('task'), 'mod_blueprint.') === 0;
 
         if($isAjax){
             $task = $input->getCmd('task', 'display');
