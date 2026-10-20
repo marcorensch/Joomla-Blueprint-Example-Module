@@ -5,8 +5,9 @@ This is a simple example frontend module for Joomla! 4.x / 5.x / 6.x. It shows J
 ## Features
 
 - New Joomla! Module Structure Example Code
-- Example Code for WebAssets
+- Example Code for WebAssets (JS / ES6 Modules / CSS)
 - Example Code for Language Files
+- Example Code for Frontend Ajax Request
 - Use Composer to set up the module
 
 ## Configuration / Usage
