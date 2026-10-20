@@ -25,6 +25,39 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
 {
 	use HelperFactoryAwareTrait;
 
+    /**
+     * Dispatch the module and handle AJAX API routes.
+     *
+     * This method checks if the request is an AJAX call via the Joomla API.
+     * If so, it creates a controller and executes the requested task.
+     * Otherwise, it falls back to the standard module dispatch flow.
+     *
+     * @return  void
+     *
+     * @since   [EXTENSION-VERSION]
+     *
+     * @throws  \Exception  If the controller execution fails
+     */
+    public function dispatch(): void
+    {
+        $app = $this->getApplication();
+        $input = $app->input;
+
+        // Joomla 4/5 AJAX API Route prüfen
+        $isAjax = $input->getCmd('option') === 'com_ajax'
+            || strpos($input->getCmd('task'), 'mod_somemodule.') === 0;
+
+        if($isAjax){
+            $task = $input->getCmd('task', 'display');
+            $controller = new DisplayController($app->getInput(), $app);
+            $controller->execute($task);
+            return;
+        }
+
+        // Normal programme flow
+        parent::dispatch();
+    }
+
 	protected function getLayoutData()
 	{
 		$params = new Registry($this->module->params);
