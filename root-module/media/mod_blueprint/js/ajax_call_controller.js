@@ -51,7 +51,10 @@ async function callModuleAjax(task= 'loadData', data = {}) {
     }
 }
 
-// Useage
+/*
+
+Usage
+
 callModuleAjax('loadData', { id: 123 })
     .then(data => {
         console.log('Success:', data);
@@ -59,3 +62,4 @@ callModuleAjax('loadData', { id: 123 })
     .catch(error => {
         console.error('Failed:', error);
     });
+ */
