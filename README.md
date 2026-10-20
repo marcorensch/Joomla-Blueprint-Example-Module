@@ -61,7 +61,7 @@ Your module has been created within the `customized` directory. Go ahead and do 
 
 ### Deployment via Composer
 
-After the Setup process is done you can Run `composer deploy [mod_name]` by typing
+After the Setup process is done, you can run `composer deploy [mod_name]` by typing
 `composer run script deploy [mod_name]` in a new terminal window where the name is your module name previously defined
 in the setup.
 
