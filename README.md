@@ -19,7 +19,7 @@ This is a simple example frontend module for Joomla! 4.x / 5.x / 6.x. It shows J
    the module
 3. Run `composer deploy [mod_name]` by typing `composer run script deploy [mod_name]` in a new terminal window where the
    name is your module name previously defined in the setup
-4. Optional: Copy the module folder and create a new Project inside your IDE
+4. Optional: Copy the module folder and create a new Project in your IDE
 5. Optional: Install the module via Joomla! Extension Manager
 
 ### Setup using manual Method via Search and Replace
