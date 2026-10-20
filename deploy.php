@@ -68,13 +68,13 @@ foreach ($files as $file)
 
         $skip = false;
 
-        // Prüfen ob Datei ausgeschlossen werden soll
+        // Check whether the file should be excluded
         if (in_array(basename($file), $excludeFiles))
         {
             $skip = true;
         }
 
-        // Prüfen ob Pfad ausgeschlossene Ordner enthält
+        // Check whether the path contains any excluded folders
         foreach ($excludeFolders as $folder)
         {
             if (strpos($relativePath, $folder . '/') === 0 || strpos($relativePath, '/' . $folder . '/') !== false)
