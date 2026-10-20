@@ -20,7 +20,7 @@ use Joomla\DI\ServiceProviderInterface;
 
 return new class() implements ServiceProviderInterface
 {
-    public function register(Container $container)
+    public function register(Container $container): void
     {
         $container->registerServiceProvider( new ModuleDispatcherFactory('\\NXD\\Module\\BluePrint'));
         $container->registerServiceProvider( new HelperFactory('\\NXD\\Module\\BluePrint\\Site\\Helper'));

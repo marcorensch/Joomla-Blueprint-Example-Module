@@ -40,20 +40,6 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
      */
     public function dispatch(): void
     {
-        $app = $this->getApplication();
-        $input = $app->input;
-
-        // Joomla 4/5 AJAX API Route prüfen
-        $isAjax = $input->getCmd('option') === 'com_ajax'
-            || strpos($input->getCmd('task'), 'mod_blueprint.') === 0;
-
-        if($isAjax){
-            $task = $input->getCmd('task', 'display');
-            $controller = new DisplayController($app->getInput(), $app);
-            $controller->execute($task);
-            return;
-        }
-
         // Normal programme flow
         parent::dispatch();
     }

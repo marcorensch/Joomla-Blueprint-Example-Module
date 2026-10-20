@@ -9,6 +9,7 @@
     },
   "scripts": {
     "setup": "php composer-setup.php",
-    "deploy": "php deploy.php"
+    "deploy": "php deploy.php",
+    "dev-deploy": "php deploy.php dev"
   }
 }

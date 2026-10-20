@@ -1,22 +1,26 @@
 /**
  * Call module AJAX endpoint
  *
- * @param {string} task - The task to execute (e.g., 'mod_blueprint.getData')
+ * @param {string} method - The task to execute (e.g., 'getData')
  * @param {object} data - Additional data to send
  * @since [EXTENSION-VERSION]
  * @returns {Promise}
  */
-async function callModuleAjax(task= 'loadData', data = {}) {
-    const url = 'index.php?option=com_ajax&format=json';
+async function callModuleAjax(method, data = {}) {
 
-    // CSRF Token von Joomla holen
+    const queryParams = new URLSearchParams({
+        option: 'com_ajax',
+        module: 'blueprint',
+        method,
+        format: 'json',
+    })
+
+    const url = 'index.php?' + queryParams.toString();
+
+    // Retrieve the CSRF token from Joomla
     const token = Joomla.getOptions('csrf.token', '');
 
     const params = new URLSearchParams({
-        option: 'com_ajax',
-        module: 'blueprint', // Module name without the 'mod_' prefix
-        method: task,
-        format: 'json',
         [token]: 1
     });
 
@@ -39,7 +43,7 @@ async function callModuleAjax(task= 'loadData', data = {}) {
 
         const result = await response.json();
 
-        // Joomla AJAX Response prüfen
+        // Check Response
         if (result.success === false) {
             throw new Error(result.messages?.error?.[0] || 'Unknown error');
         }
@@ -50,12 +54,11 @@ async function callModuleAjax(task= 'loadData', data = {}) {
         throw error;
     }
 }
-
 /*
 
 Usage
 
-callModuleAjax('loadData', { id: 123 })
+callModuleAjax('getData', { id: 123 })
     .then(data => {
         console.log('Success:', data);
     })

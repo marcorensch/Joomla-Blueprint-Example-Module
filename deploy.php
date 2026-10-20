@@ -2,30 +2,58 @@
 <?php
 // deploy.php
 
-// Read the module name from command-line arguments
-$moduleName = isset($argv[1]) ? trim($argv[1]) : '';
+// Read the mode/module name from command-line arguments
+$modeOrName = isset($argv[1]) ? trim($argv[1]) : '';
 
-if (empty($moduleName))
+if (empty($modeOrName))
 {
-    echo "Error: Please provide a module name!\n";
-    echo "Usage: composer deploy [module-name]\n";
+    echo "Error: Please provide a module name or 'dev'!\n";
+    echo "Usage: composer deploy [module-name|dev]\n";
     echo "Example: composer deploy mod_meinmodul\n";
+    echo "         composer deploy dev\n";
     exit(1);
 }
 
 // Defining paths
 $baseDir       = __DIR__;
-$sourceDir     = $baseDir . '/customized/' . $moduleName;
 $distDir       = $baseDir . '/dist';
-$zipFilePath   = $distDir . '/' . $moduleName . '.zip';
 
-// Check the list of sources
-if (!is_dir($sourceDir))
+// Check if dev mode
+$isDevMode = ($modeOrName === 'dev');
+
+if ($isDevMode)
 {
-    echo "Error: Module folder not found: customized/" . $moduleName . "\n";
-    echo "Please run 'composer setup' first and use the correct module name.\n";
-    exit(1);
+    // Dev mode: use root-module folder
+    $sourceDir   = $baseDir . '/root-module';
+    $moduleName  = 'mod_blueprint';
+    $zipFileName = 'mod_blueprint-dev.zip';
+
+    if (!is_dir($sourceDir))
+    {
+        echo "Error: root-module folder not found!\n";
+        exit(1);
+    }
+
+    echo "Dev mode: Packaging original blueprint module...\n";
 }
+else
+{
+    // Normal mode: use customized folder
+    $moduleName  = $modeOrName;
+    $sourceDir   = $baseDir . '/customized/' . $moduleName;
+    $zipFileName = $moduleName . '.zip';
+
+    if (!is_dir($sourceDir))
+    {
+        echo "Error: Module folder not found: customized/" . $moduleName . "\n";
+        echo "Please run 'composer setup' first and use the correct module name.\n";
+        exit(1);
+    }
+
+    echo "Production mode: Packaging customized module...\n";
+}
+
+$zipFilePath   = $distDir . '/' . $zipFileName;
 
 // Create a 'dist' folder if it does not exist
 if (!is_dir($distDir))
@@ -97,6 +125,6 @@ $zip->close();
 echo "\n========================================\n";
 echo "Deployment completed successfully!\n";
 echo "========================================\n";
-echo "ZIP file created: dist/" . $moduleName . ".zip\n";
+echo "ZIP file created: dist/" . $zipFileName . "\n";
 echo "File size: " . round(filesize($zipFilePath) / 1024, 2) . " KB\n";
 echo "========================================\n";

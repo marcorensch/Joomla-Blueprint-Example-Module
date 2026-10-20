@@ -51,7 +51,7 @@ $javascriptAjax = <<<JS
             console.error("Could not find button")
         }
         btn.addEventListener('click', ()=>{
-            callModuleAjax('loadData', { id: 123 })
+            callModuleAjax('getData', { id: {$module->id} })
             .then(data => {
                 console.log('Success:', data);
             })
