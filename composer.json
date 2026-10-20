@@ -4,10 +4,11 @@
   },
     "autoload": {
         "psr-4": {
-        "NXD\\Module\\Blueprint\\": "src/"
+        "NXD\\Module\\Blueprint\\": "root-module/src/"
         }
     },
   "scripts": {
-    "setup": "php composer-setup.php"
+    "setup": "php composer-setup.php",
+    "deploy": "php deploy.php"
   }
 }

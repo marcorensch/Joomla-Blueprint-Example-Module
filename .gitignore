@@ -1,3 +1,34 @@
-.idea
+# Composer
+/vendor/
 composer.lock
-vendor/
+composer-setup.php
+
+# IDE and Editor
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+
+# System-Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Log-Files
+*.log
+logs/
+
+# Temp Files
+/tmp/
+temp/
+.cache/
+
+# Backup-Files
+*.bak
+*.backup
+*.old
+
+# Project specific
+customized
+dist
