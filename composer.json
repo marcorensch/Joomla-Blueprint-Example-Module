@@ -4,7 +4,7 @@
   },
     "autoload": {
         "psr-4": {
-        "NXD\\Module\\Blueprint\\": "src/"
+        "NXD\\Module\\Blueprint\\": "root-module/src/"
         }
     },
   "scripts": {
