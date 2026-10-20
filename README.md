@@ -8,7 +8,7 @@ This is a simple example frontend module for Joomla! 4.x / 5.x / 6.x. It shows J
 - Example Code for WebAssets (JS / ES6 Modules / CSS)
 - Example Code for Language Files
 - Example Code for Frontend Ajax Request
-- Use Composer to set up the module
+- Use Composer to set up and deploy the module
 
 ## Configuration / Usage
 
