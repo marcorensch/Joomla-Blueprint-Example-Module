@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
   "name": "mod_blueprint",
-  "version": "1.0.0",
+  "version": "[EXTENSION-VERSION]",
   "description": "BluePrint Assets for Joomla!",
   "license": "GPL-2.0-or-later",
   "assets": [
@@ -25,6 +25,17 @@
       ],
       "attributes": {
         "type": "module"
+      }
+    },
+    {
+      "name": "mod_blueprint.js.controller_ajax",
+      "type": "script",
+      "uri": "mod_blueprint/ajax_call_controller.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
       }
     },
     {
