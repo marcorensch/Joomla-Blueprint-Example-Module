@@ -1,0 +1,65 @@
+# Composer
+/vendor/
+composer.lock
+composer-setup.php
+
+# Node.js / NPM
+/node_modules/
+npm-debug.log
+package-lock.json
+
+# IDE and Editor
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Log-Files
+*.log
+logs/
+
+# Temp Files
+/tmp/
+temp/
+.cache/
+
+# Build- und Cache-Folder
+/build/
+/dist/
+/.cache/
+
+# Configuration files containing sensitive data
+/.env
+/.env.local
+/config.local.php
+
+# Test-Files
+/tests/
+/phpunit.xml
+/phpunit.xml.dist
+
+# Doc folders
+/docs/
+/README.md
+/CHANGELOG.md
+
+# Media-Cache
+/media/*/cache/
+/media/*/jui/less/
+
+# compiled CSS/JS
+/*.min.css
+/*.min.js
+
+# Backup-Files
+*.bak
+*.backup
+*.old
+
+# Joomla-specific
+/configuration.php
+/local.xml
+/override/

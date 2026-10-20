@@ -5,13 +5,13 @@ This is a simple example module for Joomla! 4.x / 5.x. It shows Joomla! Content.
 - New Joomla! Module Structure Example Code
 - Example Code for WebAssets
 - Example Code for Language Files
-- Use Composer to setup the module
+- Use Composer to set up the module
 
 ## Configuration / Usage
 ### Setup using Composer
 1. Clone the repository
 2. Run `composer setup` by typing `composer run-script setup` in a new terminal window to rename the module and set up the module
-3. Run `composer deploy [name]` by typing `composer run script deploy [name]` in a new terminal window where the name is your module name previously defined in the setup
+3. Run `composer deploy [mod_name]` by typing `composer run script deploy [mod_name]` in a new terminal window where the name is your module name previously defined in the setup
 4. Install the module via Joomla! Extension Manager
 
 
