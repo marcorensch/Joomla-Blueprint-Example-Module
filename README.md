@@ -18,7 +18,8 @@ This is a simple example module for Joomla! 4.x / 5.x / 6.x. It shows Joomla! Co
    the module
 3. Run `composer deploy [mod_name]` by typing `composer run script deploy [mod_name]` in a new terminal window where the
    name is your module name previously defined in the setup
-4. Install the module via Joomla! Extension Manager
+4. Optional: Copy the module folder and create a new Project inside your IDE
+5. Optional: Install the module via Joomla! Extension Manager
 
 ### Setup using manual Method via Search and Replace
 
@@ -53,8 +54,7 @@ This is a simple example module for Joomla! 4.x / 5.x / 6.x. It shows Joomla! Co
 ## Build your Module
 
 After the setup has been done, you are good to go and can modify the module to your needs.
-Your customized module has been created within the customized directory.
-Go ahead and do your thing!
+Your module has been created within the `customized` directory. Go ahead and do your thing!
 
 ## Deployment
 
